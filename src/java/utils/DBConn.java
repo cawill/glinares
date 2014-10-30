@@ -24,7 +24,7 @@ public class DBConn {
         try {
             DriverManager.registerDriver(new com.mysql.jdbc.Driver());
             if (con == null) {
-                con = DriverManager.getConnection("jdbc:mysql://localhost:3306/gldemo", "root", "");
+                con = DriverManager.getConnection("jdbc:mysql://localhost:3306/gl", "root", "l1n4r3swcp");
 
                 System.out.println("Conexion Open!");
             }
