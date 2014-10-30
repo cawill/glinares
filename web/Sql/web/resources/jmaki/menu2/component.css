@@ -1,0 +1,113 @@
+/*Menu Bar */
+
+.jmk-menu2Bar {
+	height:14px;
+	font-family: "Lucida Grande",Arial,Helvetica,clean,sans-serif;
+	padding:0 0 5px 0;
+	font-size:12px;
+	color : #FFF;
+}
+.jmk-menu2Container {
+  padding : 3px;
+  position: absolute;
+  z-index:15;
+  width:95px;
+  display:none;
+  border: 1px gray solid;
+}
+
+.jmk-menu2EndSpacer{
+  height:12px;
+  width:35px;
+}
+
+.jmk-menu2Separator{
+  color : #FFF;
+  margin-top: 5px;
+  width: 6px;
+  list-style : none;  
+  margin-left: 3px;
+  float : right;
+}
+
+.jmk-menu2TopItem{
+
+  text-align : left;
+  position: absolute;
+  cursor:pointer;
+}
+
+.jmk-menu2Item {
+  padding :0;
+  padding-top : 1px;
+  padding-bottom : 1px;
+  margin : 0;
+  list-style : none;
+  cursor:pointer;
+
+}
+
+.jmk-menu2-bg-hover{
+  cursor:pointer;
+  background : #b1ddfd;
+  text-decoration:underline;
+}
+
+.jmk-menu2TopHover {
+    padding : 0;
+    margin : 0;
+    float:right;
+    margin-top: 2px;
+    list-style : none;
+    text-decoration:underline;    
+	margin-left:5px;
+	margin-right:5px;
+	cursor:pointer;
+}
+
+.jmk-menu2Top {
+    padding : 0;
+    margin : 0;
+    float:right;
+    margin-top: 2px;
+    list-style : none;  
+	text-decoration:none;
+	margin-left:5px;
+	margin-right:5px;
+	cursor:pointer;
+}
+
+.jmk-menu2Separator {
+	width:1px;
+	height : 6px;
+	background:#007ACB;
+	border-right:1px solid #79b0d9;
+	overflow:hidden;
+	margin-right:5px;
+}
+
+.jmk-menu2-title {
+	background:#4199DA url(images/bg-webtop.jpg) repeat-x bottom left;
+	border: 1px solid #217FC6;
+}
+
+.jmk-menu2EndSpacer {
+	width:0px;
+}
+
+.jmk-menu2Container {
+	background:#CDDFEC;
+	border:1px solid #B1CBDF;
+	font-size:12px;
+}
+
+.jmk-menu2Item {
+  background:#4199DA url(images/bg-webtop-l.jpg) repeat-x bottom left;   
+	padding:0.5em;
+	border:1px solid #68c0fe;
+}
+
+.jmk-menu2Container { 
+  background:#fff;
+  border:1px solid #68c0fe;
+}

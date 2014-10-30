@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report3" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="288">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="155"/>
+	<subDataset name="New Dataset 1">
+		<queryString language="SQL">
+			<![CDATA[SELECT * FROM CLIENTE]]>
+		</queryString>
+		<field name="ruc" class="java.lang.String"/>
+		<field name="razonSocial" class="java.lang.String"/>
+		<field name="departamento" class="java.lang.String"/>
+		<group name="razonSocial">
+			<groupExpression><![CDATA[$F{razonSocial}]]></groupExpression>
+		</group>
+	</subDataset>
+	<parameter name="rfac" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT f.seriefactura, f.numfactura, c.razonsocial, c.ruc, dc.direccion, f.guias, f.descFactura, f.descripcionigv, f.subtotal, f.igv, f.total, CONCAT(f.son," ",f.monedaletra) AS son,
+df.cantidad, df.descripcion, df.precioUnit, df.importe, f.fechafactura, DAY(f.fechafactura) AS dia, MONTH(f.fechafactura) AS mes, YEAR(f.fechafactura) AS año, f.moneda,f.impuesto
+FROM factura f
+INNER JOIN cliente c ON c.idcliente=f.idcliente
+INNER JOIN detallecliente dc ON dc.idcliente= c.idcliente
+INNER JOIN detallefactura df ON f.idfactura=df.idfactura
+WHERE f.idfactura=$P{rfac}
+ORDER BY df.idDetalleFactura]]>
+	</queryString>
+	<field name="seriefactura" class="java.lang.String"/>
+	<field name="numfactura" class="java.lang.Long"/>
+	<field name="razonsocial" class="java.lang.String"/>
+	<field name="ruc" class="java.lang.String"/>
+	<field name="direccion" class="java.lang.String"/>
+	<field name="guias" class="java.lang.String"/>
+	<field name="descFactura" class="java.lang.String"/>
+	<field name="descripcionigv" class="java.lang.String"/>
+	<field name="subtotal" class="java.math.BigDecimal"/>
+	<field name="igv" class="java.math.BigDecimal"/>
+	<field name="total" class="java.math.BigDecimal"/>
+	<field name="son" class="java.lang.String"/>
+	<field name="cantidad" class="java.lang.String"/>
+	<field name="descripcion" class="java.lang.String"/>
+	<field name="precioUnit" class="java.math.BigDecimal"/>
+	<field name="importe" class="java.lang.String"/>
+	<field name="fechafactura" class="java.sql.Date"/>
+	<field name="dia" class="java.lang.Long"/>
+	<field name="mes" class="java.lang.Long"/>
+	<field name="año" class="java.lang.Long"/>
+	<field name="moneda" class="java.lang.String"/>
+	<field name="impuesto" class="java.lang.String"/>
+	<variable name="razonsocial_1" class="java.lang.Integer" resetType="Page" calculation="DistinctCount">
+		<variableExpression><![CDATA[$F{razonsocial}]]></variableExpression>
+	</variable>
+	<variable name="direccion_1" class="java.lang.Integer" resetType="Page" calculation="DistinctCount">
+		<variableExpression><![CDATA[$F{direccion}]]></variableExpression>
+	</variable>
+	<variable name="ruc_1" class="java.lang.Integer" resetType="Page" calculation="DistinctCount">
+		<variableExpression><![CDATA[$F{ruc}]]></variableExpression>
+	</variable>
+	<variable name="cantidad_1" class="java.lang.Integer" resetType="Page" calculation="Count">
+		<variableExpression><![CDATA[$F{cantidad}]]></variableExpression>
+	</variable>
+	<variable name="cantidad_2" class="java.lang.Integer" resetType="Column" calculation="Count">
+		<variableExpression><![CDATA[$F{cantidad}]]></variableExpression>
+	</variable>
+	<variable name="precioUnit_1" class="java.lang.Integer" resetType="Column" calculation="Count">
+		<variableExpression><![CDATA[$F{precioUnit}]]></variableExpression>
+	</variable>
+	<variable name="importe_1" class="java.lang.Integer" resetType="Column" calculation="Count">
+		<variableExpression><![CDATA[$F{importe}]]></variableExpression>
+	</variable>
+	<variable name="dia_1" class="java.lang.Integer" resetType="Page" calculation="Count">
+		<variableExpression><![CDATA[$F{dia}]]></variableExpression>
+	</variable>
+	<variable name="mes_1" class="java.lang.Integer" resetType="Page" calculation="Count">
+		<variableExpression><![CDATA[$F{mes}]]></variableExpression>
+	</variable>
+	<variable name="año_1" class="java.lang.Integer" resetType="Page" calculation="Count">
+		<variableExpression><![CDATA[$F{año}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="128" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="63" splitType="Stretch">
+			<textField>
+				<reportElement x="60" y="25" width="238" height="14"/>
+				<textElement verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{direccion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="344" y="25" width="94" height="14"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ruc}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="353" y="7" width="13" height="14"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dia}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="500" y="7" width="38" height="14"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{año}]]></textFieldExpression>
+			</textField>
+			<textField pattern="MMMMM">
+				<reportElement x="401" y="7" width="68" height="14"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fechafactura}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="60" y="7" width="238" height="14"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{razonsocial}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="458" y="25" width="95" height="14"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{guias}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="27" splitType="Stretch">
+			<textField>
+				<reportElement x="51" y="0" width="355" height="25"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{descFactura}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<textField pattern="">
+				<reportElement x="4" y="0" width="28" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cantidad}]]></textFieldExpression>
+				<patternExpression><![CDATA[$F{cantidad}.toString()]]></patternExpression>
+			</textField>
+			<textField>
+				<reportElement x="51" y="0" width="327" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{descripcion}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="481" y="0" width="59" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{importe}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="210">
+			<textField pattern="#,##0.00">
+				<reportElement x="485" y="62" width="59" height="14"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{igv}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="485" y="44" width="59" height="14"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{subtotal}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="485" y="80" width="59" height="14"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="38" y="32" width="413" height="14"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{son}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="51" y="1" width="355" height="30"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{descripcionigv}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="475" y="80" width="21" height="14"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{moneda}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="475" y="62" width="21" height="14"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{moneda}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="475" y="44" width="21" height="14"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{moneda}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0 %">
+				<reportElement x="421" y="62" width="29" height="14"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{impuesto}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement mode="Opaque" x="408" y="60" width="30" height="20" forecolor="#FFFFFF"/>
+			</rectangle>
+		</band>
+	</columnFooter>
+</jasperReport>

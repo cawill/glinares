@@ -1,0 +1,1623 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RepMic" language="groovy" pageWidth="612" pageHeight="1008" columnWidth="596" leftMargin="8" rightMargin="8" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<subDataset name="New Dataset 1">
+		<queryString language="SQL">
+			<![CDATA[select * from cliente]]>
+		</queryString>
+		<field name="razonSocial" class="java.lang.String"/>
+		<field name="ruc" class="java.lang.String"/>
+		<group name="razonSocial">
+			<groupExpression><![CDATA[$F{razonSocial}]]></groupExpression>
+		</group>
+	</subDataset>
+	<parameter name="rMic" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+m.uno_nombre, m.uno_direccion, m.uno_descripcion,m.uno_codigoaduana,m.dos_rol, m.tres_transito_si,m.tres_transito_no,m.cuat_nro,
+m.cinc_hoja,m.seis_fechaemision, m.siet_aduanaciudad,m.siet_codigo,m.ocho_destino,m.ocho_codigo,cl.razonsocial, m.nueve_direccion,
+m.die_rolcontribuyente,tr.placa,m.doce_marca,m.doce_num,m.trece_cap,m.cator_anio,m.diesei_camion,m.diesei_direccion,
+m.diesiet_rolcontri,m.dieoch_placacamion,m.dienue_marca,m.dienue_numero, m.veint_capacidad,m.veinuno_anio,m.veintres_crt,
+m.veicua_aduanadestino, m.veicua_codigoadu,m.veincin_moneda,m.veinsei_origenmerca,m.veinsei_codmerca, m.veinsie_valor,m.veinoch_flete,
+m.veinnue_seguro,m.trein_tipobulto, m.trein_numero,m.treinun_cantidad,m.treindos_peso,m.treintres_remitente, m.treintres_direccion,
+m.treintres_pais,m.treincua_destinatario, m.treincua_direccion,m.treincua_pais,m.treincin_consignatario, m.treincin_direccion,
+m.treincin_pais,m.treinsei_documento,m.treinsei_fecha, m.treinsei_factura,m.treinsei_codigo,m.treinsie_numprecinto,m.treinocho_descripcion,
+m.cuaren_nrodata,CONCAT(ct.nombreconductor," ",ct.apellidopconductor," ",ct.apellidomconductor) AS conductor, ct.licenciaconductor, ra.placa AS ramplas,m.veindos_rampla,m.nueve_codigo, m.diesei_codigo,m.treinnuev_fecha,m.quince_re,m.quince_se,
+m.veindos_re,m.veindos_se, m.treinsei_texto
+FROM mic m
+INNER JOIN cliente cl ON cl.idcliente=m.idcliente
+INNER JOIN tracto tr ON tr.idtracto=m.idtracto
+INNER JOIN conductor ct ON ct.idconductor=m.idconductor
+INNER JOIN ramplas ra ON ra.idrampla=m.idrampla
+WHERE idmic=$P{rMic}]]>
+	</queryString>
+	<field name="uno_nombre" class="java.lang.String"/>
+	<field name="uno_direccion" class="java.lang.String"/>
+	<field name="uno_descripcion" class="java.lang.String"/>
+	<field name="uno_codigoaduana" class="java.lang.String"/>
+	<field name="dos_rol" class="java.lang.String"/>
+	<field name="tres_transito_si" class="java.lang.String"/>
+	<field name="tres_transito_no" class="java.lang.String"/>
+	<field name="cuat_nro" class="java.lang.String"/>
+	<field name="cinc_hoja" class="java.lang.String"/>
+	<field name="seis_fechaemision" class="java.sql.Date"/>
+	<field name="siet_aduanaciudad" class="java.lang.String"/>
+	<field name="siet_codigo" class="java.lang.String"/>
+	<field name="ocho_destino" class="java.lang.String"/>
+	<field name="ocho_codigo" class="java.lang.String"/>
+	<field name="razonsocial" class="java.lang.String"/>
+	<field name="nueve_direccion" class="java.lang.String"/>
+	<field name="die_rolcontribuyente" class="java.lang.String"/>
+	<field name="placa" class="java.lang.String"/>
+	<field name="doce_marca" class="java.lang.String"/>
+	<field name="doce_num" class="java.lang.String"/>
+	<field name="trece_cap" class="java.lang.String"/>
+	<field name="cator_anio" class="java.lang.String"/>
+	<field name="diesei_camion" class="java.lang.String"/>
+	<field name="diesei_direccion" class="java.lang.String"/>
+	<field name="diesiet_rolcontri" class="java.lang.String"/>
+	<field name="dieoch_placacamion" class="java.lang.String"/>
+	<field name="dienue_marca" class="java.lang.String"/>
+	<field name="dienue_numero" class="java.lang.String"/>
+	<field name="veint_capacidad" class="java.lang.String"/>
+	<field name="veinuno_anio" class="java.lang.String"/>
+	<field name="veintres_crt" class="java.lang.String"/>
+	<field name="veicua_aduanadestino" class="java.lang.String"/>
+	<field name="veicua_codigoadu" class="java.lang.String"/>
+	<field name="veincin_moneda" class="java.lang.String"/>
+	<field name="veinsei_origenmerca" class="java.lang.String"/>
+	<field name="veinsei_codmerca" class="java.lang.String"/>
+	<field name="veinsie_valor" class="java.lang.String"/>
+	<field name="veinoch_flete" class="java.lang.String"/>
+	<field name="veinnue_seguro" class="java.lang.String"/>
+	<field name="trein_tipobulto" class="java.lang.String"/>
+	<field name="trein_numero" class="java.lang.String"/>
+	<field name="treinun_cantidad" class="java.lang.String"/>
+	<field name="treindos_peso" class="java.lang.String"/>
+	<field name="treintres_remitente" class="java.lang.String"/>
+	<field name="treintres_direccion" class="java.lang.String"/>
+	<field name="treintres_pais" class="java.lang.String"/>
+	<field name="treincua_destinatario" class="java.lang.String"/>
+	<field name="treincua_direccion" class="java.lang.String"/>
+	<field name="treincua_pais" class="java.lang.String"/>
+	<field name="treincin_consignatario" class="java.lang.String"/>
+	<field name="treincin_direccion" class="java.lang.String"/>
+	<field name="treincin_pais" class="java.lang.String"/>
+	<field name="treinsei_documento" class="java.lang.String"/>
+	<field name="treinsei_fecha" class="java.sql.Date"/>
+	<field name="treinsei_factura" class="java.lang.String"/>
+	<field name="treinsei_codigo" class="java.lang.String"/>
+	<field name="treinsie_numprecinto" class="java.lang.String"/>
+	<field name="treinocho_descripcion" class="java.lang.String"/>
+	<field name="cuaren_nrodata" class="java.lang.String"/>
+	<field name="conductor" class="java.lang.String"/>
+	<field name="licenciaconductor" class="java.lang.String"/>
+	<field name="ramplas" class="java.lang.String"/>
+	<field name="veindos_rampla" class="java.lang.String"/>
+	<field name="nueve_codigo" class="java.lang.String"/>
+	<field name="diesei_codigo" class="java.lang.String"/>
+	<field name="treinnuev_fecha" class="java.sql.Date"/>
+	<field name="quince_re" class="java.lang.String"/>
+	<field name="quince_se" class="java.lang.String"/>
+	<field name="veindos_re" class="java.lang.String"/>
+	<field name="veindos_se" class="java.lang.String"/>
+	<field name="treinsei_texto" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnFooter>
+		<band height="928" splitType="Stretch">
+			<rectangle>
+				<reportElement x="100" y="507" width="28" height="19"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="245" y="427" width="66" height="21"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="228" y="391" width="83" height="22"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="187" y="336" width="20" height="15"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="250" y="336" width="25" height="15"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="461" y="336" width="25" height="16"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="531" y="336" width="25" height="16"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="480" y="168" width="105" height="22"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="480" y="129" width="105" height="22"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="358" y="57" width="22" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="317" y="57" width="23" height="20"/>
+			</rectangle>
+			<textField>
+				<reportElement x="40" y="50" width="263" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{uno_nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="40" y="70" width="263" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{uno_direccion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="40" y="82" width="263" height="48"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{uno_descripcion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="40" y="130" width="244" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{uno_codigoaduana}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="31" y="159" width="280" height="30"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dos_rol}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="317" y="57" width="23" height="21"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tres_transito_si}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="358" y="57" width="23" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tres_transito_no}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="400" y="40" width="179" height="37"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cuat_nro}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="317" y="94" width="76" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cinc_hoja}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="408" y="93" width="165" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{seis_fechaemision}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="317" y="129" width="149" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{siet_aduanaciudad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="479" y="130" width="103" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{siet_codigo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="317" y="158" width="149" height="30"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ocho_destino}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="481" y="170" width="103" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ocho_codigo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="31" y="207" width="280" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{razonsocial}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="31" y="226" width="282" height="16"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nueve_direccion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="247" y="242" width="56" height="15"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nueve_codigo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="31" y="275" width="142" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{die_rolcontribuyente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="180" y="276" width="123" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{placa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="31" y="306" width="142" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{doce_marca}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="31" y="321" width="142" height="14"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{doce_num}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="174" y="314" width="134" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{trece_cap}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="40" y="351" width="124" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{cator_anio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="188" y="336" width="19" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{quince_se}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="250" y="335" width="25" height="16"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{quince_re}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="179" y="353" width="127" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{ramplas}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="317" y="276" width="119" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{diesiet_rolcontri}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="447" y="276" width="137" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{dieoch_placacamion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="317" y="211" width="267" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{diesei_camion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="317" y="232" width="267" height="16"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{diesei_direccion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="313" y="305" width="131" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dienue_marca}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="317" y="320" width="119" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dienue_numero}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="447" y="314" width="137" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{veint_capacidad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="317" y="350" width="119" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{veinuno_anio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="461" y="337" width="25" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom"/>
+				<textFieldExpression><![CDATA[$F{veindos_se}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="530" y="336" width="26" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom"/>
+				<textFieldExpression><![CDATA[$F{veindos_re}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="447" y="353" width="137" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{veindos_rampla}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="31" y="391" width="95" height="21"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{veintres_crt}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="128" y="393" width="100" height="18"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{veicua_aduanadestino}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="228" y="393" width="81" height="17"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{veicua_codigoadu}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="31" y="431" width="97" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{veincin_moneda}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="128" y="430" width="117" height="16"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{veinsei_origenmerca}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="251" y="431" width="56" height="14"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{veinsei_codmerca}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="40" y="462" width="88" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{veinsie_valor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="128" y="464" width="86" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{veinoch_flete}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="217" y="464" width="89" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{veinnue_seguro}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="31" y="507" width="69" height="19"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{trein_tipobulto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="507" width="26" height="16"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{trein_numero}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="128" y="508" width="86" height="18"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{treinun_cantidad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="216" y="506" width="95" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{treindos_peso}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="317" y="387" width="267" height="13"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{treintres_remitente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="317" y="399" width="201" height="13"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{treintres_direccion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="491" y="399" width="93" height="13"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{treintres_pais}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="317" y="424" width="267" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{treincua_destinatario}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="317" y="434" width="201" height="13"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{treincua_direccion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="491" y="434" width="93" height="13"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{treincua_pais}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="317" y="458" width="267" height="14"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{treincin_consignatario}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="317" y="472" width="201" height="16"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{treincin_direccion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="497" y="472" width="87" height="16"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{treincin_pais}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="317" y="497" width="267" height="16"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{treinsei_documento}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="365" y="513" width="82" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{treinsei_fecha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="317" y="528" width="267" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{treinsei_factura}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="481" y="547" width="103" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{treinsei_codigo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="31" y="535" width="276" height="30"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{treinsie_numprecinto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="33" y="577" width="549" height="64"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{treinocho_descripcion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="317" y="663" width="267" height="65"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cuaren_nrodata}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="391" y="728" width="165" height="14"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{conductor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="393" y="742" width="163" height="16"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{licenciaconductor}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="87" y="808" width="100" height="20"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{treinnuev_fecha}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="28" y="32" width="557" height="1"/>
+			</line>
+			<line>
+				<reportElement x="28" y="3" width="557" height="1"/>
+			</line>
+			<line>
+				<reportElement x="28" y="4" width="1" height="830"/>
+			</line>
+			<line>
+				<reportElement x="585" y="4" width="1" height="830"/>
+			</line>
+			<line>
+				<reportElement x="28" y="834" width="557" height="1"/>
+			</line>
+			<rectangle radius="10">
+				<reportElement x="37" y="8" width="55" height="20"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="41" y="12" width="54" height="17"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[MIC / DTA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="99" y="4" width="474" height="24"/>
+				<textElement>
+					<font size="10" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Manifiesto Internacional de Carga por Carretera / Declaración de Tránsito Aduanero]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="17" width="461" height="21"/>
+				<textElement>
+					<font size="10" isBold="false" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Manifiesto Internacional de Carga Rodoviária / Declaraciäo de Tränsito Aduaneiro]]></text>
+			</staticText>
+			<line>
+				<reportElement x="311" y="33" width="1" height="533"/>
+			</line>
+			<line>
+				<reportElement x="29" y="566" width="557" height="1"/>
+			</line>
+			<line>
+				<reportElement x="29" y="151" width="557" height="1"/>
+			</line>
+			<line>
+				<reportElement x="29" y="190" width="557" height="1"/>
+			</line>
+			<line>
+				<reportElement x="29" y="258" width="557" height="1"/>
+			</line>
+			<line>
+				<reportElement x="312" y="118" width="273" height="1"/>
+			</line>
+			<line>
+				<reportElement x="313" y="77" width="273" height="1"/>
+			</line>
+			<line>
+				<reportElement x="394" y="33" width="1" height="85"/>
+			</line>
+			<line>
+				<reportElement x="29" y="643" width="557" height="1"/>
+			</line>
+			<line>
+				<reportElement x="311" y="644" width="1" height="190"/>
+			</line>
+			<line>
+				<reportElement x="312" y="759" width="273" height="1"/>
+			</line>
+			<line>
+				<reportElement x="29" y="297" width="555" height="1"/>
+			</line>
+			<line>
+				<reportElement x="28" y="335" width="557" height="1"/>
+			</line>
+			<line>
+				<reportElement x="28" y="373" width="557" height="1"/>
+			</line>
+			<line>
+				<reportElement x="29" y="413" width="557" height="1"/>
+			</line>
+			<line>
+				<reportElement x="29" y="448" width="557" height="1"/>
+			</line>
+			<line>
+				<reportElement x="29" y="488" width="557" height="1"/>
+			</line>
+			<line>
+				<reportElement x="28" y="526" width="283" height="1"/>
+			</line>
+			<line>
+				<reportElement x="173" y="259" width="1" height="114"/>
+			</line>
+			<line>
+				<reportElement x="444" y="258" width="1" height="116"/>
+			</line>
+			<line>
+				<reportElement x="128" y="373" width="1" height="153"/>
+			</line>
+			<line>
+				<reportElement x="215" y="449" width="1" height="78"/>
+			</line>
+			<staticText>
+				<reportElement x="37" y="34" width="104" height="17"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Nombre y Domicilio del porteador  /]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="141" y="34" width="104" height="17"/>
+				<textElement>
+					<font size="6" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Nome e endereco do transportador]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="29" y="34" width="10" height="17"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[1]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="105" y="153" width="104" height="17"/>
+				<textElement>
+					<font size="6" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Cadastro geral do contribuintes]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="31" y="153" width="10" height="17"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[2]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="39" y="153" width="104" height="17"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Rol de contribuyente /]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="321" y="41" width="55" height="17"/>
+				<textElement>
+					<font size="6" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Tránsito aduaneiro]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="313" y="33" width="10" height="17"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[3]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="321" y="33" width="57" height="17"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Tránsito aduanero]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="404" y="33" width="57" height="17"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Nº]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="396" y="33" width="10" height="17"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[4]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="321" y="79" width="57" height="17"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Hoja / Folha]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="313" y="79" width="10" height="17"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[5]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="404" y="79" width="146" height="17"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Fecha de emisión / Data de emissáo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="396" y="79" width="10" height="17"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[6]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="321" y="119" width="99" height="17"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Aduana, ciudad y país de partida /]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="313" y="119" width="10" height="17"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[7]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="417" y="119" width="144" height="17"/>
+				<textElement>
+					<font size="6" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Alfándega, cidade e pais de partida]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="313" y="153" width="10" height="17"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[8]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="321" y="153" width="104" height="17"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Ciudad y país de destino final  /]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="411" y="153" width="104" height="17"/>
+				<textElement>
+					<font size="6" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Cidade e pais de destino final]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="31" y="194" width="10" height="17"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[9]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="39" y="192" width="189" height="17"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[CAMION ORIGINAL: Nombre y domicilio del propietario]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="199" width="178" height="17"/>
+				<textElement>
+					<font size="6" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[CAMINHAO ARIGINAL: Nome e endereco de propietário]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="324" y="194" width="189" height="17"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[CAMION SUBSTITUTO: Nombre y domicilio del propietario]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="325" y="201" width="178" height="17"/>
+				<textElement>
+					<font size="6" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[CAMINHAO SUBSTITUTO: Nome e endereco de propietário]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="313" y="194" width="10" height="17"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[16]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="38" y="259" width="113" height="17"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Rol de contribuyente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="29" y="259" width="10" height="17"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[10]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="39" y="266" width="123" height="10"/>
+				<textElement>
+					<font size="6" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Cadastro geral de contribuyente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="183" y="260" width="113" height="17"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Placa del camión]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="174" y="260" width="10" height="17"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[11]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="183" y="267" width="112" height="10"/>
+				<textElement>
+					<font size="6" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Placa de caminháo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="323" y="260" width="113" height="17"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Rol de contribuyente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="313" y="260" width="10" height="17"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[17]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="324" y="267" width="123" height="10"/>
+				<textElement>
+					<font size="6" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Cadastro geral de contribuyente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="456" y="260" width="113" height="17"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Placa del camión]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="456" y="267" width="112" height="10"/>
+				<textElement>
+					<font size="6" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Placa de caminháo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="447" y="260" width="10" height="17"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[18]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="298" width="55" height="17"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Marca y número / ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="298" width="10" height="17"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[12]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="91" y="298" width="53" height="10"/>
+				<textElement>
+					<font size="6" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Marca e número]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="184" y="298" width="113" height="17"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Capacidad de arrastre (t.)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="175" y="298" width="10" height="17"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[13]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="185" y="305" width="123" height="10"/>
+				<textElement>
+					<font size="6" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Capacidad de tracao (t.)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="312" y="298" width="10" height="17"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[19]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="455" y="298" width="113" height="17"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Capacidad de arrastre (t.)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="373" y="298" width="53" height="10"/>
+				<textElement>
+					<font size="6" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Marca e número]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="322" y="298" width="55" height="17"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Marca y número / ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="456" y="305" width="123" height="10"/>
+				<textElement>
+					<font size="6" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Capacidad de tracao (t.)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="446" y="298" width="10" height="17"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[20]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="29" y="336" width="10" height="17"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[14]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="56" y="336" width="21" height="10"/>
+				<textElement>
+					<font size="6" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Ano]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="39" y="336" width="17" height="17"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Año  /]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="175" y="336" width="10" height="17"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[15]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="208" y="337" width="43" height="17"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Semiremolque]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="209" y="344" width="42" height="10"/>
+				<textElement>
+					<font size="6" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Semi-reboque]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="276" y="337" width="33" height="17"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Remolque]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="276" y="344" width="31" height="10"/>
+				<textElement>
+					<font size="6" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Reboque]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="340" y="337" width="21" height="10"/>
+				<textElement>
+					<font size="6" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Ano]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="323" y="337" width="17" height="17"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Año  /]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="313" y="337" width="10" height="17"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[21]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="446" y="336" width="10" height="17"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[22]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="489" y="337" width="43" height="17"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Semiremolque]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="555" y="337" width="33" height="17"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Remolque]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="555" y="344" width="31" height="10"/>
+				<textElement>
+					<font size="6" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Reboque]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="489" y="344" width="42" height="10"/>
+				<textElement>
+					<font size="6" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Semi-reboque]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="39" y="374" width="73" height="17"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Nº de carta de porte]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="39" y="381" width="87" height="10"/>
+				<textElement>
+					<font size="6" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Nº de conhecimiento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="374" width="10" height="17"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[23]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="141" y="374" width="68" height="17"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Aduana de destino /]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="202" y="374" width="63" height="10"/>
+				<textElement>
+					<font size="6" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Alfandega de destino]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="130" y="374" width="10" height="17"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[24]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="313" y="374" width="10" height="17"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[33]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="324" y="374" width="68" height="17"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Remitente  /]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="367" y="374" width="63" height="10"/>
+				<textElement>
+					<font size="6" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Remetente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="41" y="414" width="36" height="17"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Moneda  /]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="31" y="413" width="10" height="17"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[25]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="71" y="414" width="34" height="10"/>
+				<textElement>
+					<font size="6" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Moeda]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="130" y="414" width="10" height="17"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[26]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="141" y="414" width="77" height="17"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Origen de las mercancías /]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="218" y="414" width="85" height="10"/>
+				<textElement>
+					<font size="6" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Origen das mercadorias]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="365" y="414" width="85" height="10"/>
+				<textElement>
+					<font size="6" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Destinatário]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="323" y="414" width="44" height="17"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Destinatario  /]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="313" y="414" width="10" height="17"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[34]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="76" y="449" width="34" height="10"/>
+				<textElement>
+					<font size="6" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Valor FOT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="41" y="449" width="36" height="17"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Valor FOT  /]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="31" y="448" width="10" height="17"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[27]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="140" y="456" width="39" height="10"/>
+				<textElement>
+					<font size="6" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Flete em U$$]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="140" y="449" width="36" height="17"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Flete en U$$]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="130" y="448" width="10" height="17"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[28]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="228" y="449" width="56" height="17"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[seguro en US$$]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="218" y="448" width="10" height="17"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[29]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="228" y="456" width="39" height="10"/>
+				<textElement>
+					<font size="6" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Flete em U$$]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="323" y="449" width="44" height="17"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Consignatario  /]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="371" y="449" width="85" height="10"/>
+				<textElement>
+					<font size="6" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Consignatario]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="313" y="449" width="10" height="17"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[35]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="490" width="51" height="17"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Tipo de bultos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="489" width="10" height="17"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[30]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="41" y="496" width="52" height="10"/>
+				<textElement>
+					<font size="6" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Tipo dos volumes]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="140" y="490" width="67" height="17"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Cantidad de bultos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="130" y="489" width="10" height="17"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[31]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="141" y="496" width="66" height="10"/>
+				<textElement>
+					<font size="6" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Quantidade de volumes]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="230" y="490" width="67" height="17"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Peso bruto (Kg.)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="231" y="496" width="66" height="10"/>
+				<textElement>
+					<font size="6" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Peso bruto (Kg.)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="217" y="490" width="10" height="17"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[32]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="386" y="489" width="85" height="10"/>
+				<textElement>
+					<font size="6" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Documentos anexos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="312" y="489" width="10" height="17"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[36]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="322" y="489" width="86" height="17"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Documentos anexos /]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="119" y="527" width="85" height="10"/>
+				<textElement>
+					<font size="6" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Número dos lacres]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="527" width="86" height="17"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Número de los precintos  /]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="527" width="10" height="17"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[37]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="31" y="567" width="10" height="17"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[38]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="234" y="567" width="192" height="10"/>
+				<textElement>
+					<font size="6" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Marcas e numeros dos volumes, desericao das mercadorias]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="41" y="567" width="248" height="10"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Marcas y nuúmeros de los bultos, descripcion de las mercaderías  /]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="765" width="10" height="17"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[39]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="123" y="765" width="122" height="10"/>
+				<textElement>
+					<font size="6" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Assinatura e canmbo de transportadpr]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="765" width="86" height="10"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Firma y sello del porteador  /]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="325" y="760" width="111" height="10"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Firma y sello de la Aduana de Partida  /]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="436" y="760" width="146" height="10"/>
+				<textElement>
+					<font size="6" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Assinatura e canmbo de Alfándega de Partida]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="315" y="760" width="10" height="17"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[41]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="314" y="813" width="47" height="10"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Fecha  /  Data]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="37" y="811" width="47" height="10"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Fecha  /  Data]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="313" y="644" width="10" height="17"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[40]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="325" y="651" width="119" height="10"/>
+				<textElement>
+					<font size="6" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Nº DTA, rota e plazo de transporte]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="323" y="644" width="111" height="10"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Nº DATA, ruta y plazo de transporte]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="39" y="651" width="256" height="43"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Declaramos que las informaciones prestadas en este documento son expresión de verdad, que los datos referentes a las mercancías fueron transcritos exactamente conforme a la declaración del remitente los cuales son de su exclusiva responsabilidad, y que esta operación obedece a lo dispuesto en el convenio sobre Transporte Internacional Terrestre de los países del Cono Sur.
+
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="701" width="256" height="43"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="6" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Declaramos que as informacóes prestadas neste Documento sáo a expressáo da verdade, que os dados referentes ás mercadorias foram transcritos exactamente conforme a declaracáo de remetente, os quais sáo da sua exclusiva responsabilidade e que esta operacáo obedece ao disposto ne convénio sobre Transporte Internacional Terrestre dos Paises de Cone Sul.
+
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="342" y="57" width="17" height="17"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Si
+Sim]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="383" y="58" width="17" height="17"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[No
+Náo]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+</jasperReport>

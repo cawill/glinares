@@ -1,0 +1,62 @@
+{
+  "name": "Revolver",
+  "type": "jmaki",
+  "version": "1.1",
+  "jmakiVersion" : "1.1",
+  "author" : "Greg Murray",
+  "image" : "images/jmaki-revolver.jpg",           
+  "url" : "https://widgets.dev.java.net",
+  "description": "An highly customizable revolver that provides a new way to navigate.",
+  "args": [
+        {"tags": {"type":"STRING", "description":"The tag to display."}},
+        {"speed" : {
+           "type":"STRING", 
+            "description" : "The speed of the revolver.",
+            "defaultValue" : "auto",
+             "values": [
+                {"name" : "Auto", "value" : "auto", "description" : "Automatically calculate."},
+                {"name" : "Slow", "value" : "slow", "description" : "Slow."},
+                {"name" : "Medium", "value" : "medium", "description" : "Medium."},
+                {"name" : "Fast", "value" : "fast", "description" : "Fast."}
+               ]
+            }
+         },
+         {"max":{"type":"NUMBER", "description": "Maximum number of images to display."}},
+         {"aspect" : {
+           "type":"STRING", 
+            "description" : "Where the images are horizonal or verticle",
+            "defaultValue" : "verticle",
+             "values": [
+                {"name" : "Verticle", "value" : "verticle", "description" : "Verticle orientation."},
+                {"name" : "Horizontal", "value" : "horizontal", "description" : "Horizontal."}
+               ]
+            }
+         },
+         {"padding":{"type":"NUMBER", "description": "Extra padding around the edges to account for image sizes. The smaller the number the greater the xAxis will be."}},
+         {"xRadius":{"type":"NUMBER", "description": "The xRadius is 1/2 the width of the container but can be overridden."}},
+         {"yRadius":{"type":"NUMBER", "description": "The yRadius is generally small to create an elyptical orbit."}},
+         {"centerX":{"type":"NUMBER", "description": "The centerX is the X center point for the orbit. It is 1/2 the width of the container but can be overridden."}},
+         {"centerY":{"type":"NUMBER", "description": "The centerY is the Y center point for the orbit. It is generally small to give the impression of an elyptical orbit."}}
+        ],
+        "value" :{
+            "defaultValue" : { "items" : [
+                   {"label" : "Amsterdam",
+                    "id" : "foo",
+                    "target" : "_blank",
+                    "imgSrc" : "http://farm1.static.flickr.com/67/227194339_551e710acb_m.jpg",
+                    "href" : "http://www.flickr.com/photos/44399047@N00/sets/72157594254916360/"
+                    },
+                    {"label" : "Paris",
+                     "id" : "mid",
+                     "imgSrc" : "http://farm1.static.flickr.com/129/319228860_23770c66d3_m.jpg",
+                     "href" : "http://www.flickr.com/photos/44399047@N00/sets/72157594414671044/"
+                    },
+                    {"label" : "Seoul",
+                     "id" : "bar",
+                     "imgSrc" : "http://farm1.static.flickr.com/106/294268722_662da2ef5a_m.jpg",
+                     "href" : "http://www.flickr.com/photos/44399047@N00/sets/72157594370026444/"
+                    }
+               ]
+           }
+        }         
+}

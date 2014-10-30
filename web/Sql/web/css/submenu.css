@@ -1,0 +1,67 @@
+/* 
+    Document   : submenu
+    Created on : 27/02/2012, 07:04:42 PM
+    Author     : Josmarl
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+root { 
+    display: block;
+}
+
+/*
+Template Design by ZhengDesign.com
+http://www.zhengdesign.com
+Released for free under a Creative Commons Attribution-Share Alike 3.0 Philippines
+*/
+
+
+
+body{
+
+
+}
+
+
+#navigation {
+        
+        text-transform: inherit;
+	width: 1000px;
+	height: 30px;
+	margin-top:1px ;
+	padding: 6px;
+}
+
+#navigation ul {
+	margin: 0px;
+	list-style: none;
+}
+
+#navigation li {
+	display: inline;
+}
+
+#navigation a {
+	display: block;
+	float: left;
+	padding: 5px 40px 40px 5px;
+	background: url(../imagenes/submenu/image02.jpg) no-repeat right 80px;
+	text-decoration: none;
+	font-weight:bold;
+	color: #525250;
+}
+#navigation a:hover{
+	color:#000;
+}
+
+#navigation .first {
+	padding-left: 14px;
+}
+
+

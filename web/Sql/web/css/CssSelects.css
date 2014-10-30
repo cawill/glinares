@@ -1,0 +1,28 @@
+@charset "utf-8";
+/* 
+    Document   : CssSelects
+    Created on : 03/01/2012, 10:36:37 PM
+    Author     : Josmarl
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+root { 
+    display: block;
+}
+option {font-family: verdana; font-size: 10px; color: white} 
+option.uno {background-color: #CCC} 
+option.dos {background-color: #666} 
+SELECT{ font-family: verdana; font-size: 10px; color: white; background-color:black;} 
+body{
+background-color: #e8f4ff;
+   font-family: Verdana, Arial, sans-serif;
+   font-size: 90%;
+   font-weight: normal;
+   padding: 10px;
+}

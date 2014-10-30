@@ -1,0 +1,19 @@
+{
+  "name": "Calendar",
+  "type": "jmaki",
+  "version": "1.0",
+  "jmakiVersion" : "1.1",
+  "author" : "Greg Murray",
+  "image" : "images/jmaki-calendar.jpg",           
+  "url" : "https://ajax.dev.java.net",
+  "description": "An highly customizable event calendar widget.",
+  "args": [
+        ],
+   "value" : {
+            "defaultValue" : [
+                    { "id" : "2008_4_6",
+                      "value" : [{"id" : "2008_4_6" , "month" : 4 , "day" : 6 , "year" : 2008 , "label" : "JavaOne"}]
+                    }
+                 ]
+    }           
+}

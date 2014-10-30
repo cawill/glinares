@@ -1,0 +1,43 @@
+.jmk-wt-lightbox-titlebar {
+    height : 20px;
+    background-image : url(images/bg-webtop.jpg);
+    background-repeat: repeat-x; 
+}
+
+.jmk-wt-lightbox-title {
+    float : left;
+    height : 20px;
+    color : #FFF;
+    padding-top: 3px;
+    font-size : 12px;
+}
+
+.jmk-wt-lightbox-icons {
+    float : right;
+    margin-top: 2px;
+    padding-right: 2px;
+    height : 20px;  
+    width : 15px;  
+}
+
+.jmk-wt-lightbox-icons img {
+    padding: 1px;
+    height : 15px;
+    width : 15px;
+    cursor : pointer;
+}
+
+.jmk-wt-lightbox-icons div {
+    padding: 1px;
+    height : 15px;
+    width : 15px;
+    cursor : pointer;
+}
+
+.jmk-wt-lightbox {
+    z-index : 10000;
+    border : 1px solid #000;
+    background : #FFF;
+    margin-top: 2px;
+    position : absolute;
+}

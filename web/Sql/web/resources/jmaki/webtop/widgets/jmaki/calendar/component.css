@@ -1,0 +1,159 @@
+.jmk-calendar {
+    width : 100%;
+    height : 100%;
+}
+
+.jmk-calendar table {
+    width : 100%;
+    height : 100%;
+    padding :0;
+    margin :0;
+    background : #FFF;
+}
+
+.jmk-calendar-nav {
+    height : 6.66%;
+    text-align : center;
+    cursor : pointer;
+}
+
+.jmk-calendar-cell {
+    vertical-align : top;
+    width : 14.28%;
+    height : 12.28%;
+    border : 1px solid #000;        
+}
+
+.jmk-calendar-cell-selected {
+    vertical-align : top;
+    width : 14.28%;
+    height : 12.28%;
+    border : 1px solid #000;
+    background : #217fc6 url(images/tileBlueBg-l.png) repeat-x;
+            
+}
+
+.jmk-calendar-cell-date {
+   padding : 3px;
+   float : right;        
+}
+
+.jmk-calendar-cell-disabled {
+    width : 14.28%;
+    height : 12.28%;
+
+    background : #8fc1e6;
+}
+
+.jmk-calendar-header-month {
+    width : 100%;
+    height : 7.65%;
+    overflow : hidden;
+    font-size : 16px;
+    text-align : center;
+}
+
+.jmk-calendar-header-cell {
+    width : 14.28%;
+    height : 6.66%;
+    overflow : hidden;
+    font-size : 12px;
+    text-align : center;
+}
+
+.jmk-calendar-entry {
+    width : 99%;
+    border :0px;
+    color : #000;
+    font-size : 10px;
+    cursor : pointer;
+}
+
+.jmk-calendar-entry-selected {
+    width : 99%;
+    border :0px;
+    background : #FEA667;
+    color : #000;
+    font-size : 10px;
+    cursor : pointer;
+}
+
+.jmk-calendar-edit {
+    width : 98%;
+    border :0px;
+    color : #E76204;
+    font-size : 10px;
+}
+
+.jmk-calendar-details {
+    position : absolute;
+    width : 150px;
+    height : 145px;
+}
+
+.jmk-calendar-details-arrow {
+    position : absolute;
+    z-index : 9999;
+    margin-top: 45px;
+    width : 25px;
+    height : 75px;
+    background : url(images/arrow-left.gif) no-repeat;
+}
+
+.jmk-calendar-details-close {
+    margin-top:1px;
+    position : absolute;
+    z-index : 9999;
+    margin-left: 128px;
+    width : 10px;
+    height : 10px;
+    background : url(images/close.png) no-repeat;
+    cursor : pointer;
+}
+
+.jmk-calendar-details-title{
+    z-index : 9998;
+    position : absolute;
+    width : 140px;
+    height : 12px;    
+    background : #68c0fe;
+}
+
+.jmk-calendar-details-body {
+    position : absolute;
+    top : 13px;
+    width : 133px;
+    height : 100px;
+    padding-left : 5px;    
+}
+
+.jmk-calendar-details-body-name {
+    font-size : 14px;
+    cursor : pointer;
+}
+
+.jmk-calendar-details-body-details {
+    font-size : 12px;
+    margin-top : 2px;
+    cursor : pointer;
+}
+
+.jmk-calendar-details-buttons {
+    position : absolute;
+    top : 105px;
+    width : 133px;
+    height : 111px;
+    padding-left : 5px;
+}
+
+
+.jmk-calendar-details-container {
+    z-index : 9998;
+    position : absolute;
+    top : 11px;
+    left : 24px;    
+    width : 140px;
+    height : 135px;    
+    background : #FFF;
+    border : 1px solid #000;    
+}

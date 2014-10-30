@@ -1,0 +1,52 @@
+#outerBorder {
+  margin: 0px 20px 30px 20px;
+  padding: 10px 10px 10px 10px;
+}
+
+
+#main {
+  width: 1275px;
+  margin-top: -35px;
+ 
+}
+
+#content {
+  border: 0px solid white;
+}
+
+
+#banner {
+  margin: 0px 40px 0px 0px;
+  display:table-cell;
+  vertical-align:middle;
+  font-size:30px;
+  font-family:Tahoma;
+}
+iframe{
+    border:none;
+}
+
+#divuser {
+	position:absolute;
+	left:847px;
+	top:50px;
+	width:353px;
+	height:20px;
+	z-index:1;
+        color:white;
+        font-family:Tahoma;
+        font-size:12px;
+}
+
+
+#Layer_title_banner {
+	position:absolute;
+	left:109px;
+	top:246px;
+	width:370px;
+	height:2px;
+        color: #FFFFFF;
+	font-family: Tahoma;
+	font-size: 13px;
+        font-weight:600;
+}
