@@ -1,0 +1,45 @@
+.jmk-revolver {
+    position: relative;
+}
+
+.jmk-revolver-content {
+    position : absolute;
+}
+
+.jmk-revolver-title-link {
+    color : #000;
+    text-decoration : none;
+}
+
+.jmk-revolver-title-link:hover {
+    cursor: pointer;
+    color : #000;
+    text-decoration : underline;
+}
+
+.jmk-revolver-title {
+    clear : both;
+    z-Index : 401;
+    position : absolute;
+    color : #000;
+    bottom :0; 
+    text-align : center;
+    font-size : 15px;
+    height: 20px;
+}
+
+.jmk-revolver-arrow-right { 
+    background: url(images/rightArrow.png) no-repeat top right;
+    width:52px;
+    height:45px;
+    cursor:pointer;
+    position : absolute;
+}
+
+.jmk-revolver-arrow-left {
+    background: url(images/leftArrow.png) no-repeat top left;
+    width:52px;
+    height:45px;
+    cursor:pointer;
+    position : absolute;
+}

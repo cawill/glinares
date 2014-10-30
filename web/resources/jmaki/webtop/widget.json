@@ -1,0 +1,15 @@
+{'name': 'Web Top',
+         'type': 'jmaki',
+         'version' : '1.0',
+         'jmakiVersion' : '1.1',
+         'author' : 'Greg Murray',
+         'url' : 'https://jmaki-webtop.dev.java.net',         
+         'image' : 'images/jmak-webtop.jpg',
+         'dataModel' : 'http://wiki.java.net/bin/view/Projects/jMakiWebtopDataModel',
+         'description':'A widget loader / layout manager with the ability to save state in Google Gears.',
+         'value':{'type' : 'OBJECT',
+                'defaultValue':
+                {
+                }
+      }
+ }

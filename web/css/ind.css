@@ -1,0 +1,59 @@
+/*
+    Document   : ultimate
+    Created on : 25/01/2012, 12:39:52 PM
+    Author     : Josmarl
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/*
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+root {
+    display: block;
+}
+
+body {
+
+        margin-top:1px;
+                
+}
+.background{
+background :url(../imagenes/main/main.png) ; 
+background-attachment: fixed; 
+background-position: top center; 
+background-repeat: repeat-x;
+} 
+a{
+  color:white;
+  font-family:Tahoma;
+  font-size:12px;
+}
+/*#82C1E8*/
+
+
+ div, h1 
+ { 
+     font-family: Tahoma; 
+     font-weight: bold;
+     margin: 0; 
+     padding: 0;
+     font-size:13px;
+ }
+div.oval 
+{ 
+background-image: url(../imagenes/main/bg2.jpg); 
+width:50%;display:inline-block; border-top:30px;height:127px;width:1275px; border: none;
+}
+
+
+#menu {
+	position:absolute;
+	left:50px;
+	top:200px;
+	width:200px;
+	height:200px;
+	z-index:2;
+}

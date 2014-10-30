@@ -1,0 +1,405 @@
+@charset "utf-8";
+/* 
+    Document   : ultimate
+    Created on : 25/01/2013, 13:39:52 PM
+    Author     : Josmarl
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+root { 
+    display: block;
+}
+
+
+
+
+
+body {
+background :url(../imagenes/main/main.png) ; 
+background-attachment: fixed; 
+background-position: top center; 
+background-repeat: repeat-x;
+font-family:Arial, Helvetica, sans-serif;
+padding:0px;
+font-size:11px;
+margin:0 auto;
+color: #0e4354;
+}
+
+
+
+h1{
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top:0px;
+    font-size: 13px;
+    text-transform:uppercase;
+    /*
+    background-color: #60c8f2;
+    color: #039;
+    */
+    color: #039;
+    background: #60c8f2;
+    border-top:1px solid #60c8f2;
+    border-bottom:1px solid #60c8f2;
+    padding:10px 15px;
+}
+h3{
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top:0px;
+    font-size: 13px;
+    text-transform:uppercase;
+    /*
+    background-color: #60c8f2;
+    color: #039;
+    */
+    background: #60c8f2;
+    /*
+    border-top:1px solid #60c8f2;
+    border-bottom:1px solid #60c8f2;
+    */
+    color: #039;
+    padding:10px 15px;
+}
+
+
+a{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    text-decoration:none;
+    
+}
+
+button{
+    	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+}
+input{
+    font-family: Arial, Helvetica, sans-serif;
+     font-size: 11px;
+}
+submit{
+     font-family: Arial, Helvetica, sans-serif;
+     font-size: 11px;
+     text-decoration:none;
+}
+
+select{
+         font-family: Arial, Helvetica, sans-serif;
+     font-size: 11px;
+}
+
+
+.rad{
+    margin:4px;
+    font-size:11px;
+}
+
+#rounded-corner
+{
+ 
+margin:0px;
+width:900px;
+text-align: left;
+border-collapse: collapse;
+}
+#rounded-corner  th.rounded-company
+{
+font-weight: bold;
+width:80px;
+background: #60c8f2 url('../imagenes/main/left.jpg') left top no-repeat;
+
+
+}
+#rounded-corner  th.rounded-q4
+{
+background: #60c8f2 url('../imagenes/main/right.jpg') right top no-repeat;
+
+}
+#rounded-corner th
+{
+padding: 4px;
+font-weight: normal;
+font-size: 13px;
+color: #039;
+background: #60c8f2;
+}
+#rounded-corner td
+{
+padding: 4px;
+background: #ecf8fd;
+border-top: 1px solid #fff;
+color: #669;
+}
+#rounded-corner  th.rounded-foot-left
+{
+font-weight: bold;
+width:80px;
+background: #60c8f2 url('../imagenes/main/botright.jpg') left bottom no-repeat;
+}
+#rounded-corner  th.rounded-foot-right
+{
+font-weight: bold;
+width:80px;
+background: #60c8f2 url('../imagenes/main/botleft.jpg') right bottom no-repeat;
+}
+#rounded-corner tbody tr:hover td
+{
+background: #d2e7f0;
+}
+
+#rounded-buscar th{
+    padding: 1px;
+}
+
+
+
+
+
+
+
+
+#rounded-corner-list
+{
+margin:0px;
+width:400px;
+text-align: left;
+border-collapse: collapse;
+}
+#rounded-corner-list  th.rounded-company
+{
+font-weight: bold;
+width:80px;
+background: #60c8f2 url('../imagenes/main/left.jpg') left top no-repeat;
+
+
+}
+#rounded-corner-list  th.rounded-q4
+{
+background: #60c8f2 url('../imagenes/main/right.jpg') right top no-repeat;
+
+}
+#rounded-corner-list th
+{
+padding: 4px;
+font-weight: normal;
+font-size: 13px;
+color: #039;
+background: #60c8f2;
+}
+#rounded-corner-list td
+{
+padding: 4px;
+background: #ecf8fd;
+border-top: 1px solid #fff;
+color: #669;
+}
+#rounded-corner-list  th.rounded-foot-left
+{
+font-weight: bold;
+width:80px;
+background: #60c8f2 url('../imagenes/main/botright.jpg') left bottom no-repeat;
+}
+#rounded-corner-list  th.rounded-foot-right
+{
+font-weight: bold;
+width:80px;
+background: #60c8f2 url('../imagenes/main/botleft.jpg') right bottom no-repeat;
+}
+#rounded-corner-list tbody tr:hover td
+{
+background: #d2e7f0;
+}
+
+
+
+
+
+
+
+
+
+
+#rounded-corner-list_1
+{
+margin:0px;
+width:600px;
+text-align: left;
+border-collapse: collapse;
+}
+#rounded-corner-list_1  th.rounded-company
+{
+font-weight: bold;
+width:80px;
+background: #60c8f2 url('../imagenes/main/left.jpg') left top no-repeat;
+
+
+}
+#rounded-corner-list_1  th.rounded-q4
+{
+background: #60c8f2 url('../imagenes/main/right.jpg') right top no-repeat;
+
+}
+#rounded-corner-list_1 th
+{
+padding: 4px;
+font-weight: normal;
+font-size: 13px;
+color: #039;
+background: #60c8f2;
+}
+#rounded-corner-list_1 td
+{
+padding: 4px;
+background: #ecf8fd;
+border-top: 1px solid #fff;
+color: #669;
+}
+#rounded-corner-list_1  th.rounded-foot-left
+{
+font-weight: bold;
+width:80px;
+background: #60c8f2 url('../imagenes/main/botright.jpg') left bottom no-repeat;
+}
+#rounded-corner-list_1  th.rounded-foot-right
+{
+font-weight: bold;
+width:80px;
+background: #60c8f2 url('../imagenes/main/botleft.jpg') right bottom no-repeat;
+}
+#rounded-corner-list_1 tbody tr:hover td
+{
+background: #d2e7f0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+#rounded-corner-list_2
+{
+margin:0px;
+width:800px;
+text-align: left;
+border-collapse: collapse;
+}
+#rounded-corner-list_2  th.rounded-company
+{
+font-weight: bold;
+width:80px;
+background: #60c8f2 url('../imagenes/main/left.jpg') left top no-repeat;
+
+
+}
+#rounded-corner-list_2  th.rounded-q4
+{
+background: #60c8f2 url('../imagenes/main/right.jpg') right top no-repeat;
+
+}
+#rounded-corner-list_2 th
+{
+padding: 4px;
+font-weight: normal;
+font-size: 13px;
+color: #039;
+background: #60c8f2;
+}
+#rounded-corner-list_2 td
+{
+padding: 4px;
+background: #ecf8fd;
+border-top: 1px solid #fff;
+color: #669;
+}
+#rounded-corner-list_2  th.rounded-foot-left
+{
+font-weight: bold;
+width:80px;
+background: #60c8f2 url('../imagenes/main/botright.jpg') left bottom no-repeat;
+}
+#rounded-corner-list_2  th.rounded-foot-right
+{
+font-weight: bold;
+width:80px;
+background: #60c8f2 url('../imagenes/main/botleft.jpg') right bottom no-repeat;
+}
+#rounded-corner-list_2 tbody tr:hover td
+{
+background: #d2e7f0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+#rounded-corner-comp
+{
+margin:0px;
+width:800px;
+text-align: left;
+border-collapse: collapse;
+}
+#rounded-corner-comp  th.rounded-company
+{
+font-weight: bold;
+width:80px;
+background: #60c8f2 url('../imagenes/main/left.jpg') left top no-repeat;
+
+
+}
+#rounded-corner-comp  th.rounded-q4
+{
+background: #60c8f2 url('../imagenes/main/right.jpg') right top no-repeat;
+
+}
+#rounded-corner-comp th
+{
+padding: 4px;
+font-weight: normal;
+font-size: 12px;
+color: #039;
+background: #60c8f2;
+}
+#rounded-corner-comp td
+{
+padding: 4px;
+background: #ecf8fd;
+border-top: 1px solid #fff;
+color: #669;
+}
+#rounded-corner-comp  th.rounded-foot-left
+{
+font-weight: bold;
+width:80px;
+background: #60c8f2 url('../imagenes/main/botright.jpg') left bottom no-repeat;
+}
+#rounded-corner-comp  th.rounded-foot-right
+{
+font-weight: bold;
+width:80px;
+background: #60c8f2 url('../imagenes/main/botleft.jpg') right bottom no-repeat;
+}
+#rounded-corner-comp tbody tr:hover td
+{
+background: #d2e7f0;
+}

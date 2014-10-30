@@ -1,0 +1,55 @@
+/* 
+    Document   : stylelp1
+    Created on : 30/04/2011, 06:51:15 PM
+    Author     : Administrador
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+root { 
+    display: block;
+}
+#divlogin{    
+    background-color: #b0c4de;
+    border-bottom-color: #007a31;
+}
+.divlogin{    
+    background-image: url("/imagenes/media/green-boxx.gif");
+    background-repeat: no-repeat;
+    border-bottom-color: #007a31;
+    color: white;
+    padding:inherit;
+    width: 300px;
+    height: 124px;
+    padding: 20px 20px 20px 20px;
+    margin: -45% 73%;
+}
+.titlelogin{
+    background-image: url("/imagenes/media/icon_key.gif");
+    background-repeat: no-repeat;    
+}
+.textImput{
+    background-image: url("/imagenes/media/icon_component.gif");
+    background-repeat: no-repeat;
+    background-color:#CDDFEC;
+    padding-left: 20px; 
+    border: 1px solid #a4a4a4;   
+}
+.button{
+    background-image: url("/imagenes/media/button-lrn-more.png");
+    background-repeat: no-repeat;   
+    background-color: transparent;    
+    width: 113px;
+    height: 28px;
+    border:2px;        
+    padding-left: 10px;   
+    font-weight: bold;
+    margin: 1% 30%;
+}
+
+

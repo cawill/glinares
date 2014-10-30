@@ -1,0 +1,792 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Rcrt" language="groovy" pageWidth="612" pageHeight="1008" columnWidth="584" leftMargin="14" rightMargin="14" topMargin="14" bottomMargin="42">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="rCrt" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT cr.idcrt,
+clie.razonSocial, dclie.direccion AS direccion1, clie.departamento AS depar1, clie.pais AS pais1,
+cli.razonsocial AS destinatario_4, dcli.direccion AS direccion2, cli.departamento AS depar2 , cli.pais AS pais2,
+cl.razonsocial AS consignatario_6, dcl.direccion AS direccion3,cl.departamento AS depar3 , cl.pais AS pais3,
+c.razonsocial AS notificar_9, dc.direccion AS direccion4, c.departamento AS depar4, c.pais AS pais4,
+cr.numero_2, cr.detalle_transportista, pai.ciudad AS ciudad1, pai.pais AS pais11, cr.fechaemision_5, pa.ciudad AS ciudad2, pa.pais AS pais22, p.ciudad AS ciudad3, p.pais AS pais33, cr.porteadorsucesivo_10,
+cr.detallebultos_11, cr.pesobruto_12, cr.volumen_13, cr.valor_14, cr.moneda_14, cr.gastos_15, cr.remitente_15a,cr.remitente_15b, cr.montoremitente_15a,
+cr.montoremitente_15b, cr.totalremitente_15, cr.moneda_15a, cr.destinatario_15a, cr.destinatario_15b, cr.monto_15a, cr.monto_15b, cr.totalmonto_15,
+cr.moneda_15b, cr.valormercancia_16,cr.anexos_17, cr.instruccionesaduana_18, cr.montofleteextern_19, cr.montorembolso_20, cr.nombrefirmaremitente_21,
+cr.fecha_21, cr.declaraciones_22, cr.nombreporteador_23, cr.fechaporteador_23, cr.nombrefirmadestin_24, cr.fechadestin_24
+FROM crt cr
+INNER JOIN pais pai ON pai.idpais=cr.idpais
+INNER JOIN pais pa ON pa.idpais=cr.lugarporteador_7
+INNER JOIN pais p ON p.idpais=cr.lugarentrega_8
+INNER JOIN cliente clie ON clie.idCliente=cr.idcliente
+INNER JOIN detallecliente dclie ON dclie.idcliente=clie.idcliente
+INNER JOIN cliente cli ON cli.idcliente=cr.destinatario_4
+INNER JOIN detallecliente dcli ON dcli.idcliente=cli.idcliente
+INNER JOIN cliente cl ON cl.idcliente=cr.consignatario_6
+INNER JOIN detallecliente dcl ON dcl.idcliente=cl.idcliente
+INNER JOIN cliente c ON c.idcliente=cr.notificar_9
+INNER JOIN detallecliente dc	ON dc.idcliente=c.idcliente
+WHERE cr.idcrt=$P{rCrt}]]>
+	</queryString>
+	<field name="idcrt" class="java.math.BigInteger"/>
+	<field name="razonSocial" class="java.lang.String"/>
+	<field name="direccion1" class="java.lang.String"/>
+	<field name="depar1" class="java.lang.String"/>
+	<field name="pais1" class="java.lang.String"/>
+	<field name="destinatario_4" class="java.lang.String"/>
+	<field name="direccion2" class="java.lang.String"/>
+	<field name="depar2" class="java.lang.String"/>
+	<field name="pais2" class="java.lang.String"/>
+	<field name="consignatario_6" class="java.lang.String"/>
+	<field name="direccion3" class="java.lang.String"/>
+	<field name="depar3" class="java.lang.String"/>
+	<field name="pais3" class="java.lang.String"/>
+	<field name="notificar_9" class="java.lang.String"/>
+	<field name="direccion4" class="java.lang.String"/>
+	<field name="depar4" class="java.lang.String"/>
+	<field name="pais4" class="java.lang.String"/>
+	<field name="numero_2" class="java.lang.String"/>
+	<field name="detalle_transportista" class="java.lang.String"/>
+	<field name="ciudad1" class="java.lang.String"/>
+	<field name="pais11" class="java.lang.String"/>
+	<field name="fechaemision_5" class="java.sql.Date"/>
+	<field name="ciudad2" class="java.lang.String"/>
+	<field name="pais22" class="java.lang.String"/>
+	<field name="ciudad3" class="java.lang.String"/>
+	<field name="pais33" class="java.lang.String"/>
+	<field name="porteadorsucesivo_10" class="java.lang.String"/>
+	<field name="detallebultos_11" class="java.lang.String"/>
+	<field name="pesobruto_12" class="java.lang.String"/>
+	<field name="volumen_13" class="java.lang.String"/>
+	<field name="valor_14" class="java.lang.String"/>
+	<field name="moneda_14" class="java.lang.String"/>
+	<field name="gastos_15" class="java.lang.String"/>
+	<field name="remitente_15a" class="java.lang.String"/>
+	<field name="remitente_15b" class="java.lang.String"/>
+	<field name="montoremitente_15a" class="java.lang.String"/>
+	<field name="montoremitente_15b" class="java.lang.String"/>
+	<field name="totalremitente_15" class="java.lang.String"/>
+	<field name="moneda_15a" class="java.lang.String"/>
+	<field name="destinatario_15a" class="java.lang.String"/>
+	<field name="destinatario_15b" class="java.lang.String"/>
+	<field name="monto_15a" class="java.lang.String"/>
+	<field name="monto_15b" class="java.lang.String"/>
+	<field name="totalmonto_15" class="java.lang.String"/>
+	<field name="moneda_15b" class="java.lang.String"/>
+	<field name="valormercancia_16" class="java.lang.String"/>
+	<field name="anexos_17" class="java.lang.String"/>
+	<field name="instruccionesaduana_18" class="java.lang.String"/>
+	<field name="montofleteextern_19" class="java.lang.String"/>
+	<field name="montorembolso_20" class="java.lang.String"/>
+	<field name="nombrefirmaremitente_21" class="java.lang.String"/>
+	<field name="fecha_21" class="java.lang.String"/>
+	<field name="declaraciones_22" class="java.lang.String"/>
+	<field name="nombreporteador_23" class="java.lang.String"/>
+	<field name="fechaporteador_23" class="java.sql.Date"/>
+	<field name="nombrefirmadestin_24" class="java.lang.String"/>
+	<field name="fechadestin_24" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="922" splitType="Stretch">
+			<rectangle>
+				<reportElement x="10" y="29" width="523" height="873"/>
+			</rectangle>
+			<textField>
+				<reportElement x="38" y="113" width="248" height="14"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{razonSocial}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="38" y="141" width="114" height="14"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{depar1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="160" y="141" width="100" height="14"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pais1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="38" y="171" width="248" height="14"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{destinatario_4}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="38" y="185" width="248" height="14"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{direccion2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="39" y="199" width="113" height="14"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{depar2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="160" y="199" width="100" height="14"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pais2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="38" y="227" width="248" height="14"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{consignatario_6}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="38" y="241" width="248" height="14"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{direccion3}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="38" y="255" width="114" height="14"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{depar3}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="160" y="255" width="100" height="14"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pais3}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="38" y="281" width="248" height="14"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{notificar_9}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="38" y="309" width="114" height="14"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{depar4}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="160" y="309" width="100" height="14"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pais4}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="355" y="113" width="157" height="14"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{numero_2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="38" y="127" width="248" height="14"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{direccion1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="318" y="201" width="56" height="14"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ciudad1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="379" y="201" width="64" height="14"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pais11}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="318" y="238" width="56" height="14"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ciudad2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="379" y="238" width="64" height="14"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pais22}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="318" y="271" width="56" height="14"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ciudad3}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="379" y="271" width="64" height="14"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pais33}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="318" y="305" width="194" height="14"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{porteadorsucesivo_10}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="11" y="353" width="384" height="168"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{detallebultos_11}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="412" y="353" width="100" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pesobruto_12}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="412" y="414" width="100" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{volumen_13}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="412" y="470" width="100" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{valor_14}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="443" y="501" width="45" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{moneda_14}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="11" y="617" width="53" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{gastos_15}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="81" y="543" width="70" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{remitente_15a}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="81" y="575" width="70" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{remitente_15b}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="81" y="617" width="65" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{totalremitente_15}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="81" y="563" width="70" height="12"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{montoremitente_15a}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="81" y="596" width="70" height="12"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{montoremitente_15b}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="154" y="617" width="27" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{moneda_15a}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="188" y="544" width="62" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{destinatario_15a}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="188" y="577" width="62" height="19"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{destinatario_15b}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="188" y="564" width="62" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{monto_15a}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="188" y="597" width="62" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{monto_15b}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="184" y="617" width="72" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{totalmonto_15}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="453" y="201" width="59" height="14"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fechaemision_5}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="261" y="616" width="36" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{moneda_15b}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="318" y="535" width="194" height="20"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{valormercancia_16}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="318" y="567" width="194" height="42"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{anexos_17}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="318" y="635" width="194" height="52"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{instruccionesaduana_18}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="25" y="646" width="267" height="17"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{montofleteextern_19}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="25" y="679" width="283" height="20"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{montorembolso_20}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="25" y="728" width="283" height="51"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{nombrefirmaremitente_21}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="318" y="699" width="194" height="85"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{declaraciones_22}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="25" y="811" width="283" height="39"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{nombreporteador_23}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="136" y="881" width="124" height="20"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fechaporteador_23}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="318" y="799" width="194" height="64"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombrefirmadestin_24}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="38" y="295" width="248" height="14"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{direccion4}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="90" y="764" width="70" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fecha_21}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="358" y="869" width="85" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fechadestin_24}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="10" y="99" width="523" height="1"/>
+			</line>
+			<line>
+				<reportElement x="10" y="521" width="523" height="1"/>
+			</line>
+			<line>
+				<reportElement x="10" y="614" width="523" height="1"/>
+			</line>
+			<line>
+				<reportElement x="10" y="322" width="523" height="1"/>
+			</line>
+			<line>
+				<reportElement x="289" y="100" width="1" height="222"/>
+			</line>
+			<line>
+				<reportElement x="290" y="188" width="243" height="1"/>
+			</line>
+			<line>
+				<reportElement x="311" y="784" width="222" height="1"/>
+			</line>
+			<line>
+				<reportElement x="10" y="211" width="279" height="1"/>
+			</line>
+			<line>
+				<reportElement x="311" y="688" width="221" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="311" y="556" width="222" height="11"/>
+				<textElement>
+					<font size="7" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[  17 Documentos anexos/Dumentos anexos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="636" width="300" height="11"/>
+				<textElement>
+					<font size="7" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[  19 Monto del flete externo/Valor do drete externo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="395" y="323" width="137" height="11"/>
+				<textElement>
+					<font size="7" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[  12 Peso bruto en Kg./Peso bruto em kg.]]></text>
+			</staticText>
+			<line>
+				<reportElement x="395" y="323" width="1" height="198"/>
+			</line>
+			<line>
+				<reportElement x="290" y="293" width="243" height="1"/>
+			</line>
+			<line>
+				<reportElement x="396" y="452" width="136" height="1"/>
+			</line>
+			<line>
+				<reportElement x="11" y="663" width="299" height="1"/>
+			</line>
+			<ellipse>
+				<reportElement x="24" y="38" width="40" height="40"/>
+			</ellipse>
+			<staticText>
+				<reportElement x="71" y="522" width="85" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="7" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Monto remitente
+Valor remetente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="289" y="220" width="243" height="19"/>
+				<textElement>
+					<font size="7" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[  7 Lugar, país y fecha en que el porteador se hace carga de las mercancías
+     Localidade, país e data em que o transportador se responsabiliza pela mercadoría]]></text>
+			</staticText>
+			<line>
+				<reportElement x="10" y="635" width="301" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="290" y="189" width="243" height="11"/>
+				<textElement>
+					<font size="7" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[  5 Lugar y país de emisión/Localidade e país de emissâo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="292" y="100" width="240" height="11"/>
+				<textElement>
+					<font size="7" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[2 Número/Número]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="521" width="60" height="18"/>
+				<textElement textAlignment="Center">
+					<font size="7" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[15 Gastos a pagar
+  Gastos a pagar]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="666" width="300" height="11"/>
+				<textElement>
+					<font size="7" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[  20 Monto de rembolso contra entregada/Valor de reembolso contra entrega]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="260" y="522" width="51" height="20"/>
+				<textElement>
+					<font size="7" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Moneda
+Moeda]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="396" y="453" width="137" height="11"/>
+				<textElement>
+					<font size="7" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[  14 Valor/Valor ]]></text>
+			</staticText>
+			<line>
+				<reportElement x="70" y="522" width="1" height="113"/>
+			</line>
+			<staticText>
+				<reportElement x="11" y="214" width="279" height="11"/>
+				<textElement>
+					<font size="7" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[  6 Nombre y domicilio del consignatario/Nome e endereço do consinatário]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="270" width="279" height="11"/>
+				<textElement>
+					<font size="7" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[  9 Notificar a: /Notificar a:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="323" width="368" height="30"/>
+				<textElement>
+					<font size="7" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[  11 Cantidad y clase de bultos, marcas y números tipo de mercancías, contenedores y accesorios
+       Quantidade e categoria de volumes, marcas e números, tipo de mercadorias, containers e peças]]></text>
+			</staticText>
+			<line>
+				<reportElement x="10" y="155" width="279" height="1"/>
+			</line>
+			<line>
+				<reportElement x="181" y="522" width="1" height="113"/>
+			</line>
+			<staticText>
+				<reportElement x="10" y="156" width="279" height="11"/>
+				<textElement>
+					<font size="7" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[  4 Nombre y domicilio del destinatario/Nome e endereço do destínatário]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="396" y="490" width="56" height="11"/>
+				<textElement>
+					<font size="7" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[  Moneda/Moeda ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="310" y="615" width="222" height="20"/>
+				<textElement>
+					<font size="7" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[  18 Insrucciones sobre formalidades de aduana/Instruçôes sobre formalidades de alfándega]]></text>
+			</staticText>
+			<line>
+				<reportElement x="260" y="522" width="1" height="113"/>
+			</line>
+			<staticText>
+				<reportElement x="182" y="522" width="79" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="7" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Monto destinatario
+Valor destinatário]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="215" y="28" width="317" height="72"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[El transporte realizado bajo esta Carta de Porte Internacional está sujeto a las disposiciones del Convenio sobre el Contrato de transporte y la Responsabilidad Civil del Porteador en el Transporte Terrestre Internacional de Mercancías las cuales anulan toda estipulación que se aparte de ellas en perjuicio del remitente o del consignatario.
+O transporte realizado ao amparo deste Conhecimento de transporte Internacional está sujeito as disposiçôes do Convenio sobre o Contrato de Transporte e a Responsabilidade Civil do Transportador no Transporte Terrestre Internacional de Mercadorìas, as quaìs anulam toda estipulaçâo contrária as mesmas em prejuízo de remetente ou do consignatario.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="289" y="293" width="243" height="11"/>
+				<textElement>
+					<font size="7" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[  10 Porteadores sucesivos/Transportadores sucessivos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="786" width="297" height="25"/>
+				<textElement>
+					<font size="7" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[23 Nombre, firma y sello del porteador o su representante
+    Nome, assinatura e carimbo do transportador ou seu representante]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="310" y="687" width="222" height="10"/>
+				<textElement>
+					<font size="7" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[22 Declaraciones y observaciones/Declaraçôes e observaçôes]]></text>
+			</staticText>
+			<line>
+				<reportElement x="290" y="219" width="243" height="1"/>
+			</line>
+			<line>
+				<reportElement x="10" y="269" width="279" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="73" y="38" width="130" height="59"/>
+				<textElement textAlignment="Justified"/>
+				<text><![CDATA[Carta de Porte Internacional
+por Carretera
+Conhecimiento de transporte
+Internacional de Rodovia]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="27" y="48" width="31" height="20"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CRT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="100" width="279" height="11"/>
+				<textElement>
+					<font size="7" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[  1 Nombre y domicilio del remitente/Nome e endereço do remetente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="289" y="256" width="243" height="11"/>
+				<textElement>
+					<font size="7" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[  8 Lugar, país y plazo de entrega/Localidade, país e prazo de entrega]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="376" y="146" width="156" height="37"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="5" isItalic="true" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[C.P. Fco. Bolognesi - Pasaje Leguía Nº 03  TACNA - PERÚ
+Teléfono: (51 52) 24- 2264  Fax: (51 52) 42- 7763
+E-Mail :  logistica@GrupoLinares.com.pe
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="310" y="522" width="222" height="11"/>
+				<textElement>
+					<font size="7" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[  16 Declaración del valor de las mercancias/ Declaraçâo do valor das mercadorias ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="702" width="300" height="26"/>
+				<textElement>
+					<font size="7" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[  21 Nombre y firma del remitente o su representante
+    Nome e assinatura do remetente ou seu representante]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="395" y="389" width="137" height="11"/>
+				<textElement>
+					<font size="7" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[   13 Volumen en m.cu./Volume em m.cu.]]></text>
+			</staticText>
+			<line>
+				<reportElement x="156" y="522" width="1" height="113"/>
+			</line>
+			<line>
+				<reportElement x="10" y="785" width="301" height="1"/>
+			</line>
+			<line>
+				<reportElement x="290" y="253" width="243" height="1"/>
+			</line>
+			<line>
+				<reportElement x="290" y="138" width="243" height="1"/>
+			</line>
+			<line>
+				<reportElement x="311" y="555" width="222" height="1"/>
+			</line>
+			<line>
+				<reportElement x="396" y="388" width="137" height="1"/>
+			</line>
+			<line>
+				<reportElement x="310" y="521" width="1" height="380"/>
+			</line>
+			<line>
+				<reportElement x="10" y="699" width="295" height="1"/>
+			</line>
+			<image>
+				<reportElement x="292" y="143" width="117" height="45"/>
+				<imageExpression><![CDATA["E:\\UNIVERSIDAD PERUANA UNION\\CICLO IV\\PROYECTOS ESPECIAL GRUPO LINARES\\gl dia 01-04\\GrupoLinaresSoftware1.0\\GrupoLinaresSoftware1.0\\web\\Modulos\\reportes\\lineas\\gl.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</pageHeader>
+</jasperReport>

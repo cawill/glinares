@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RepGuia" language="groovy" pageWidth="612" pageHeight="1008" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="209">
+	<property name="ireport.zoom" value="1.6500000000000012"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="504"/>
+	<parameter name="rGuia" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT gr.idguia, gr.puntopartida, p.pais AS paispartida, p.ciudad AS ciudadpartida, gr.puntollegada, pa.pais AS paisllegada, pa.ciudad AS ciudadllegada,
+c.razonsocial, dc.direccion, c.ruc, gr.fechatraslado, cl.razonsocial AS razocialdestin, dcl.direccion AS direcciondestin, cl.ruc AS rucdestin, gr.costominimo,
+t.marca, t.placa, t.configuracion, t.nroconstancia, r.placa AS placarampla, r.nroconstancia AS nroconstrampla, CONCAT(cd.nombreconductor," ",cd.apellidopconductor," ",cd.apellidomconductor) AS conductor,
+cd.licenciaconductor, trans.razonsocial AS transportista, dctra.direccion AS direcciontranspo, trans.pais AS paistranspo, trans.departamento AS deptranspo, trans.ruc AS ructranspo,
+dgr.codigo, dgr.descripcion, dgr.cantidad, dgr.unidmedida, dgr.pesototal, gr.totcantidad, gr.totbulto, gr.totpesotot, r.configuracion as configrampla
+FROM guia_remision gr
+INNER JOIN pais p ON p.idpais=gr.idpais
+INNER JOIN pais pa ON pa.idpais=gr.ciudadA
+INNER JOIN cliente c ON c.idcliente=gr.idcliente
+INNER JOIN detallecliente dc ON c.idcliente=dc.idcliente
+INNER JOIN cliente cl ON cl.idcliente=gr.rsocialdestinatario
+INNER JOIN detallecliente dcl ON dcl.idcliente=cl.idcliente
+INNER JOIN tracto t ON t.idtracto=gr.idtracto
+INNER JOIN ramplas r ON r.idrampla=gr.idrampla
+INNER JOIN conductor cd ON cd.idconductor=gr.idconductor
+INNER JOIN cliente trans ON trans.idcliente=gr.datostransportista
+INNER JOIN detallecliente dctra ON dctra.idcliente=trans.idcliente
+INNER JOIN detalleguiaremision dgr ON dgr.idguia=gr.idguia
+WHERE gr.idguia=$P{rGuia}
+ORDER BY dgr.iddetalleguia]]>
+	</queryString>
+	<field name="idguia" class="java.lang.Long"/>
+	<field name="puntopartida" class="java.lang.String"/>
+	<field name="paispartida" class="java.lang.String"/>
+	<field name="ciudadpartida" class="java.lang.String"/>
+	<field name="puntollegada" class="java.lang.String"/>
+	<field name="paisllegada" class="java.lang.String"/>
+	<field name="ciudadllegada" class="java.lang.String"/>
+	<field name="razonsocial" class="java.lang.String"/>
+	<field name="direccion" class="java.lang.String"/>
+	<field name="ruc" class="java.lang.String"/>
+	<field name="fechatraslado" class="java.lang.String"/>
+	<field name="razocialdestin" class="java.lang.String"/>
+	<field name="direcciondestin" class="java.lang.String"/>
+	<field name="rucdestin" class="java.lang.String"/>
+	<field name="costominimo" class="java.lang.String"/>
+	<field name="marca" class="java.lang.String"/>
+	<field name="placa" class="java.lang.String"/>
+	<field name="configuracion" class="java.lang.String"/>
+	<field name="nroconstancia" class="java.lang.String"/>
+	<field name="placarampla" class="java.lang.String"/>
+	<field name="nroconstrampla" class="java.lang.String"/>
+	<field name="conductor" class="java.lang.String"/>
+	<field name="licenciaconductor" class="java.lang.String"/>
+	<field name="transportista" class="java.lang.String"/>
+	<field name="direcciontranspo" class="java.lang.String"/>
+	<field name="paistranspo" class="java.lang.String"/>
+	<field name="deptranspo" class="java.lang.String"/>
+	<field name="ructranspo" class="java.lang.String"/>
+	<field name="codigo" class="java.lang.String"/>
+	<field name="descripcion" class="java.lang.String"/>
+	<field name="cantidad" class="java.lang.String"/>
+	<field name="unidmedida" class="java.lang.String"/>
+	<field name="pesototal" class="java.lang.String"/>
+	<field name="totcantidad" class="java.lang.Double"/>
+	<field name="totbulto" class="java.lang.String"/>
+	<field name="totpesotot" class="java.math.BigDecimal"/>
+	<field name="configrampla" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="50"/>
+	</title>
+	<pageHeader>
+		<band height="320">
+			<textField>
+				<reportElement x="31" y="126" width="257" height="41"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{puntopartida}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="299" y="126" width="273" height="41"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{puntollegada}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="82" y="160" width="87" height="14"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{paispartida}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="207" y="160" width="81" height="14"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{ciudadpartida}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="473" y="160" width="87" height="14"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{paisllegada}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="321" y="160" width="100" height="14"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{ciudadllegada}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="31" y="201" width="257" height="16"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{razonsocial}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="31" y="217" width="257" height="14"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{direccion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="299" y="201" width="273" height="16"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{razocialdestin}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="299" y="217" width="273" height="14"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{direcciondestin}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="114" y="231" width="174" height="14"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ruc}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="395" y="231" width="177" height="14"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{rucdestin}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="169" y="268" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{fechatraslado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="445" y="268" width="100" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{costominimo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="14">
+			<textField>
+				<reportElement x="21" y="0" width="56" height="14"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{codigo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="82" y="0" width="291" height="14"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{descripcion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="384" y="0" width="61" height="14"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cantidad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="445" y="0" width="45" height="14"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{unidmedida}]]></textFieldExpression>
+			</textField>
+			<textField pattern="##,##0.00">
+				<reportElement x="490" y="0" width="55" height="14"/>
+				<textElement textAlignment="Right">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pesototal}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="186">
+			<textField>
+				<reportElement x="49" y="32" width="100" height="15"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{marca}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="50" y="48" width="100" height="15"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{placa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="159" y="48" width="100" height="15"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{placarampla}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="114" y="67" width="100" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{configuracion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="114" y="86" width="83" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nroconstancia}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="197" y="86" width="83" height="15"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nroconstrampla}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="114" y="106" width="185" height="15"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{conductor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="114" y="127" width="185" height="15"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{licenciaconductor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="321" y="47" width="224" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{transportista}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="321" y="63" width="224" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{direcciontranspo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="445" y="82" width="100" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{paistranspo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="358" y="82" width="87" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{deptranspo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="358" y="106" width="187" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ructranspo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="384" y="-10" width="61" height="12"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{totcantidad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="445" y="-10" width="45" height="12"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{totbulto}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="490" y="-10" width="55" height="12"/>
+				<textElement textAlignment="Right" verticalAlignment="Bottom">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{totpesotot}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="384" y="-11" width="161" height="1"/>
+			</line>
+			<line>
+				<reportElement x="384" y="4" width="161" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="510" y="4" width="30" height="13"/>
+				<textElement>
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[K.B.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="143" y="48" width="6" height="18"/>
+				<textElement/>
+				<text><![CDATA[/]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="196" y="87" width="6" height="18"/>
+				<textElement/>
+				<text><![CDATA[/]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="445" y="83" width="13" height="18"/>
+				<textElement/>
+				<text><![CDATA[-]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="221" y="67" width="78" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{configrampla}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="211" y="67" width="6" height="18"/>
+				<textElement/>
+				<text><![CDATA[/]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="27" splitType="Stretch"/>
+	</pageFooter>
+</jasperReport>

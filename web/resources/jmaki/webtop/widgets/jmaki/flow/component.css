@@ -1,0 +1,52 @@
+.jmk-flow  { 
+   height : 100%;
+   width : 100%;
+   color : #FFF;
+   position : relative;
+}
+
+.jmk-flow img { 
+    top:0px;
+    border:none;
+}
+
+.jmk-flow a{
+    color:#FFF;
+}
+
+.jmk-flow-images{
+    visibility:hidden;
+}
+.jmk-flow-loading{
+    margin-top:50px;
+    text-align:center;
+    width:100%;
+}
+.jmk-flow-loading img{
+    margin-top:10px;
+    position:relative; 
+}
+
+.jmk-flow-captions{
+    font-weight:bold;
+    position:relative; 
+    text-align:center;
+    z-index:10000;
+}
+.jmk-flow-scrollbar{
+    visibility:hidden;
+    position:absolute; 
+    border-bottom:1px solid #b3b3b3;
+    z-index:10001;
+}
+
+.jmk-flow-slider{
+    position:absolute;
+    margin-top:-7px;
+    margin-left:-7px;
+    z-index:10002;
+    background-image:url(images/slider.png);
+    background-repeat:no-repeat;
+    width:14px;
+    height:14px;	
+}
